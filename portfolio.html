@@ -7,8 +7,17 @@
   <meta name="description" content="Selected work from Stoke Design.">
   <link rel="icon" href="assets/images/logo.png">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("has-wipe");
+      // If the motion scripts never run, uncover the page.
+      window.__wipeFailsafe = setTimeout(function () { document.documentElement.classList.remove("has-wipe"); }, 5000);
+    }
+  </script>
 </head>
 <body id="top">
+
+  <div class="c-pagewipe" aria-hidden="true"><div class="c-pagewipe_panel"></div></div>
 
   <nav class="nav">
     <a class="nav__logo" href="index.html" aria-label="Stoke Design"><img src="assets/images/logo.png" alt="Stoke Design"></a>
@@ -50,6 +59,10 @@
     <a class="btn btn--outline btn--sm" href="#top">Back to top</a>
   </footer>
 
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
   <script src="nav.js" defer></script>
+  <script src="motion.js" defer></script>
 </body>
 </html>
