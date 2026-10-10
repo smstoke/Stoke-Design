@@ -54,9 +54,9 @@ html.lenis,html.lenis body{height:auto}
 .nav__toggle:focus-visible,.nav__links a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* Hero */
-.hero{position:relative;min-height:416px;overflow:hidden}
+.hero{position:relative;min-height:416px;overflow:hidden;display:flex;align-items:center}
 .hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero__content{position:relative;max-width:1440px;margin:0 auto;padding:clamp(56px,8.33vw,120px) clamp(20px,7.08vw,102px) 56px}
+.hero__content{position:relative;width:100%;max-width:1440px;margin:0 auto;padding:56px clamp(20px,7.08vw,102px)}
 .hero h1{font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(36px,4.445vw,64px);line-height:.98;letter-spacing:-.005em;text-transform:uppercase;color:var(--cream)}
 .hero h4{margin-top:clamp(16px,1.945vw,28px);font-family:"Archivo Black",sans-serif;font-weight:400;font-size:clamp(14px,1.778vw,25.6px);line-height:.98;letter-spacing:.445em;text-transform:uppercase;color:var(--gold)}
 .hero p{margin-top:28px;max-width:460px;font-family:"Inter Display","Inter",sans-serif;font-size:14px;line-height:20.3px;color:var(--text)}
