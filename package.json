@@ -1,0 +1,11 @@
+{
+  "name": "stoke-design",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Stoke Design website",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "dev:sync": "node dev-server.js --pull"
+  },
+  "engines": { "node": ">=20" }
+}
