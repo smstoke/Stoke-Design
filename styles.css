@@ -77,6 +77,19 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 .page-head + main .work__grid{margin-top:0}
 .work .btn{display:flex;width:max-content;margin:32px auto 0}
 
+/* Project pages: one wide image, then two squares, repeating */
+.page-head .eyebrow{margin:0 0 16px;max-width:none;font-family:"Archivo Black",sans-serif;font-size:14px;line-height:1.4;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.project-grid > img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.project-grid > .is-wide{grid-column:1 / -1;aspect-ratio:2200/1200}
+.project-nav{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+/* Linked work tiles */
+.work__grid > a{display:block;overflow:hidden}
+.work__grid > a img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.work__grid > a:hover img{transform:scale(1.03)}
+.work__grid > a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 20px;font-size:14px;font-weight:600;line-height:14px;transition:opacity .2s,background .2s,color .2s}
 .btn--gold{background:var(--gold);color:var(--bg)}
@@ -118,6 +131,7 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
   .nav__links a{display:block;padding:16px 20px;font-size:18px}
 }
 @media (max-width:560px){
+  .project-grid{gap:8px}
   .work__grid{grid-template-columns:minmax(0,1fr)}
   .work{padding-top:40px}
   .about,.footer{max-width:calc(100% - 32px)}

@@ -1,6 +1,7 @@
 # Stoke Design
 
-Static site: `index.html` (home) and `portfolio.html`, styled by `styles.css`,
+Static site: `index.html` (home), `portfolio.html` and one case-study page per project
+(`7b-iv.html`, `shooters.html`, `valor-christian.html`), styled by `styles.css`,
 with smooth scroll and intro animation in `motion.js` and the mobile menu in `nav.js`.
 
 ## Run locally with live reload

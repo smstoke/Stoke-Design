@@ -68,8 +68,8 @@
   }
 
   var HEADINGS = ".hero h1, .hero h4, .page-head h1, .work h2, .about h2";
-  var SLIDE = ".work__grid > *, .about__img";
-  var RISE = ".hero p, .page-head p, .about__text p, .about__buttons, .work .btn, .footer img, .footer .btn";
+  var SLIDE = ".work__grid > *, .project-grid > *, .about__img";
+  var RISE = ".hero p, .page-head p, .about__text p, .about__buttons, .work .btn, .project-nav, .footer img, .footer .btn";
 
   // Hide everything up front (the wipe panel is covering the page at this point).
   document.querySelectorAll(HEADINGS).forEach(function (el) {
