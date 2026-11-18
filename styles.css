@@ -79,9 +79,12 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 
 /* Project pages: one wide image, then two squares, repeating */
 .page-head .eyebrow{margin:0 0 16px;max-width:none;font-family:"Archivo Black",sans-serif;font-size:14px;line-height:1.4;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
-.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.project-grid > img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.project-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.project-grid > img{grid-column:span 3;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
 .project-grid > .is-wide{grid-column:1 / -1;aspect-ratio:2200/1200}
+/* Editorial: show every page uncropped at its own proportions */
+.project-grid.project-grid--natural > img{aspect-ratio:auto;object-fit:contain}
+.project-grid > .is-third{grid-column:span 2}
 .project-nav{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 /* Linked work tiles */
@@ -132,6 +135,8 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 }
 @media (max-width:560px){
   .project-grid{gap:8px}
+  .project-grid > .is-third{grid-column:span 3}
+  .project-grid > .is-third-last{grid-column:1 / -1}
   .work__grid{grid-template-columns:minmax(0,1fr)}
   .work{padding-top:40px}
   .about,.footer{max-width:calc(100% - 32px)}
