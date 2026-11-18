@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magazine Ads | Stoke Design</title>
+  <meta name="description" content="Full page and spread advertisements for restaurants, drinks and local builders.">
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("has-wipe");
+      // If the motion scripts never run, uncover the page.
+      window.__wipeFailsafe = setTimeout(function () { document.documentElement.classList.remove("has-wipe"); }, 5000);
+    }
+  </script>
+</head>
+<body id="top">
+
+  <div class="c-pagewipe" aria-hidden="true"><div class="c-pagewipe_panel"></div></div>
+
+  <nav class="nav">
+    <a class="nav__logo" href="index.html" aria-label="Stoke Design"><img src="assets/images/logo.png" alt="Stoke Design"></a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#about-services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="mailto:hello@stokedesign.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-head project-head">
+    <p class="eyebrow">Regional magazines &middot; Print advertising</p>
+    <h1>Magazine Ads</h1>
+    <p>Full page and spread advertisements for restaurants, drinks and local builders.</p>
+  </header>
+
+  <main>
+    <section class="work" id="work">
+      <div class="project-grid project-grid--natural">
+        <img class="is-wide" src="assets/images/Sams-editorial6.jpg" width="2513" height="1631" loading="lazy" decoding="async" alt="Every Neighborhood Should Be So Lucky restaurant guide spread">
+        <img class="is-page" src="assets/images/Sams-editorial5.jpg" width="1256" height="1631" loading="lazy" decoding="async" alt="Dry Fly canned cocktails ad with a skier above a row of cans">
+        <img class="is-page" src="assets/images/Sams-editorial4.jpg" width="1256" height="1631" loading="lazy" decoding="async" alt="Ramey Construction print ad, Handcrafted Design">
+        <img class="is-wide" src="assets/images/Sams-editorial7.jpg" width="2513" height="1631" loading="lazy" decoding="async" alt="Every Neighborhood Should Be So Lucky spread with a map and collage of dishes">
+      </div>
+      <nav class="project-nav" aria-label="Projects">
+        <a class="btn btn--outline" href="portfolio.html">&larr; All work</a>
+        <a class="btn btn--gold" href="7b-iv.html">Next: 7B-IV Trinity Wellness Center &rarr;</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/images/logo.png" alt="Stoke Design">
+    <a class="btn btn--outline btn--sm" href="#top">Back to top</a>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="motion.js" defer></script>
+</body>
+</html>
