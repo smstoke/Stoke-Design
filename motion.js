@@ -7,6 +7,38 @@
   var root = document.documentElement;
   clearTimeout(window.__wipeFailsafe);
 
+  /* ---------- Where a navigation lands ----------
+   * Following a link always starts the new page at the top, in every browser,
+   * unless the link has a #hash, in which case the section is shown just below
+   * the sticky nav. Back/forward still restore the old scroll position. */
+  var TOP_FLAG = "stoke:land-top";
+  var lenisRef = null;
+
+  function navHeight() {
+    var nav = document.querySelector(".nav");
+    return nav ? nav.offsetHeight : 0;
+  }
+  function jumpTo(y) {
+    if (lenisRef) lenisRef.scrollTo(y, { immediate: true, force: true });
+    else window.scrollTo(0, y);
+  }
+  function landOnTarget() {
+    var viaLink = false;
+    try { viaLink = sessionStorage.getItem(TOP_FLAG) === "1"; } catch (e) { /* storage blocked */ }
+    var target = null;
+    if (location.hash.length > 1) {
+      try { target = document.querySelector(location.hash); } catch (e) { target = null; }
+    }
+    if (target) {
+      jumpTo(Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - navHeight()));
+    } else if (viaLink) {
+      jumpTo(0);
+    }
+  }
+  function clearFlag() { try { sessionStorage.removeItem(TOP_FLAG); } catch (e) { /* ignore */ } }
+  landOnTarget();
+  window.addEventListener("load", function () { landOnTarget(); clearFlag(); });
+
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
     root.classList.remove("has-wipe");
@@ -19,6 +51,8 @@
   if (typeof Lenis !== "undefined") {
     lenis = new Lenis({ lerp: 0.05, smoothWheel: true });
     window.lenis = lenis;
+    lenisRef = lenis;
+    landOnTarget();
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -148,6 +182,12 @@
     if (url.origin !== location.origin) return;
     if (url.pathname === location.pathname && url.hash) return;
     e.preventDefault();
+    if (url.pathname === location.pathname && url.search === location.search) {
+      // Link to the page you're already on: just glide back to the top.
+      if (lenis) lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    try { sessionStorage.setItem(TOP_FLAG, "1"); } catch (err) { /* storage blocked */ }
     gsap.set(panel, { yPercent: -105 });
     gsap.to(panel, { yPercent: 0, duration: COVER, ease: EASE, onComplete: function () { location.href = a.href; } });
   });
