@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Johnson Brothers Painting | Stoke Design</title>
+  <meta name="description" content="A logo system and business cards for Johnson Brothers Painting, from a spray gun badge to a stacked wordmark.">
+  <link rel="icon" href="assets/images/stoke-design-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("has-wipe");
+      // If the motion scripts never run, uncover the page.
+      window.__wipeFailsafe = setTimeout(function () { document.documentElement.classList.remove("has-wipe"); }, 5000);
+    }
+  </script>
+</head>
+<body id="top">
+
+  <div class="c-pagewipe" aria-hidden="true"><div class="c-pagewipe_panel"></div></div>
+
+  <nav class="nav">
+    <a class="nav__logo" href="index.html" aria-label="Stoke Design"><img src="assets/images/stoke-design-logo.png" alt="Stoke Design"></a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#about-services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="mailto:hello@stokedesign.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-head project-head">
+    <p class="eyebrow">Brand identity</p>
+    <h1>Johnson Brothers Painting</h1>
+    <p>A logo system and business cards for Johnson Brothers Painting, from a spray gun badge to a stacked wordmark.</p>
+  </header>
+
+  <main>
+    <section class="work" id="work">
+      <div class="project-grid">
+        <img class="is-wide" src="assets/images/johnson-brothers-painting-logo-design-variations.jpg" width="2200" height="1200" loading="lazy" decoding="async" alt="Johnson Brothers Painting logo variations: spray gun badge and stacked wordmark on black and white">
+        <img src="assets/images/johnson-brothers-painting-business-cards.jpg" width="1166" height="1200" loading="lazy" decoding="async" alt="Johnson Brothers Painting business cards, front and back, for owner Zachary Johnson">
+        <img src="assets/images/johnson-brothers-painting-badge-logo-on-dark-texture.jpg" width="1166" height="1200" loading="lazy" decoding="async" alt="Johnson Brothers Painting spray gun badge logo on a dark textured background">
+      </div>
+      <nav class="project-nav" aria-label="Projects">
+        <a class="btn btn--outline" href="portfolio.html">&larr; All work</a>
+        <a class="btn btn--gold" href="editorial-design.html">Next: Editorial Design &rarr;</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/images/stoke-design-logo.png" alt="Stoke Design">
+    <a class="btn btn--outline btn--sm" href="#top">Back to top</a>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="motion.js" defer></script>
+</body>
+</html>
