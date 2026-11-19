@@ -94,11 +94,24 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .project-nav{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
-/* Linked work tiles */
-.work__grid > a{display:block;overflow:hidden}
+/* Linked work tiles, with a hover overlay: client name + service */
+.work__grid > a{position:relative;display:block;overflow:hidden}
 .work__grid > a img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.work__grid > a:hover img{transform:scale(1.03)}
 .work__grid > a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.tile-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  padding:clamp(20px,4vw,56px);text-align:center;background:rgba(20,24,22,.82);opacity:0;pointer-events:none;
+  transition:opacity .35s ease}
+.tile-overlay__name{font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(26px,3.1vw,44px);line-height:1.05;letter-spacing:.005em;
+  text-transform:uppercase;text-wrap:balance;color:var(--cream);transform:translateY(10px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.tile-overlay__service{font-family:"Archivo Black",sans-serif;font-size:clamp(11px,1vw,14px);line-height:1.4;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gold);transform:translateY(14px);transition:transform .5s cubic-bezier(.2,.7,.2,1) .04s}
+.work__grid > a:focus-visible .tile-overlay{opacity:1}
+.work__grid > a:focus-visible .tile-overlay > *{transform:none}
+@media (hover:hover){
+  .work__grid > a:hover img{transform:scale(1.03)}
+  .work__grid > a:hover .tile-overlay{opacity:1}
+  .work__grid > a:hover .tile-overlay > *{transform:none}
+}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 20px;font-size:14px;font-weight:600;line-height:14px;transition:opacity .2s,background .2s,color .2s}
