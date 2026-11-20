@@ -27,6 +27,7 @@ tile to `portfolio.html`, and re-add its Related work link on `services.html`.
 
 ## Contact form
 
-`contact.html` sends messages through Web3Forms. Paste your access key (free at https://web3forms.com) into the
-`access_key` field in that file, replacing `YOUR_ACCESS_KEY_HERE`. Until then the form shows a "not connected yet"
-message and sends nothing.
+`contact.html` sends messages through Web3Forms, using the access key in its `access_key` field (keys are meant to sit
+in page HTML). To change the key or the inbox that receives messages, get a new key at https://web3forms.com and
+replace that field's value. If the field ever holds a placeholder starting with `YOUR_ACCESS_KEY`, the form refuses to
+send and tells visitors it is not connected.
