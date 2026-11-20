@@ -107,9 +107,9 @@
     return words;
   }
 
-  var HEADINGS = ".hero h1, .hero h4, .page-head h1, .work h2, .about h2, .service h2, .services-cta h2";
+  var HEADINGS = ".hero h1, .hero h4, .page-head h1, .work h2, .about h2, .service h2, .services-cta h2, .page-section > h2, .about-intro__text h2, .facts__item h2, .job h3";
   var SLIDE = ".work__grid > *, .project-grid > *, .about__img";
-  var RISE = ".hero p, .page-head p, .about__text p, .about__buttons, .work .btn, .project-nav, .service__body > p, .services-cta .btn, .footer img, .footer .btn";
+  var RISE = ".hero p, .page-head p, .about__text p, .about__buttons, .work .btn, .project-nav, .service__body > p, .services-cta .btn, .about-intro__text p, .about-intro__img, .job__range, .job__body p, .facts__item p, .footer img, .footer .btn";
 
   // Hide everything up front (the wipe panel is covering the page at this point).
   document.querySelectorAll(HEADINGS).forEach(function (el) {

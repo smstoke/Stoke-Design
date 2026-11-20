@@ -66,9 +66,9 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 /* Page header (inner pages) */
 .page-head{max-width:1440px;margin:0 auto;padding:clamp(40px,5.56vw,80px) clamp(20px,7.08vw,102px) 0}
 .page-head h1{font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(36px,4.445vw,64px);line-height:.98;letter-spacing:-.005em;text-transform:uppercase;color:var(--cream)}
-.page-head--services h1{max-width:1000px;text-wrap:balance}
-.page-head--services .h1-main{display:block}
-.page-head--services .h1-accent{display:block;margin-top:clamp(14px,1.6vw,24px);font-family:"Archivo Black",sans-serif;
+.page-head--split h1{max-width:1000px;text-wrap:balance}
+.page-head--split .h1-main{display:block}
+.page-head--split .h1-accent{display:block;margin-top:clamp(14px,1.6vw,24px);font-family:"Archivo Black",sans-serif;
   font-size:clamp(12px,1.46vw,21px);line-height:1.45;letter-spacing:.4em;color:var(--gold)}
 .page-head p{margin-top:20px;max-width:618px;font-family:"Inter Display","Inter",sans-serif;font-size:14px;line-height:20.3px;color:var(--text)}
 .page-head + main .work{padding-top:48px}
@@ -142,6 +142,28 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 .services-cta h2{font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(28px,3.1vw,44px);line-height:1;
   letter-spacing:-.005em;text-transform:uppercase;color:var(--cream)}
 
+/* About page */
+.page-section{max-width:1440px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,7.01vw,101px) 0}
+.page-head + main .page-section:first-child{padding-top:48px}
+.about-intro{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,4.45vw,64px);align-items:start}
+.about-intro__text p{margin-top:20px;font-family:"Inter Display","Inter",sans-serif;font-size:16px;line-height:1.6;color:var(--text);max-width:600px}
+.about-intro__text h2+p{margin-top:24px}
+.about-intro__img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+.page-section > h2{margin-bottom:clamp(8px,1vw,16px)}
+.job{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4.45vw,64px);
+  padding:clamp(28px,3.6vw,52px) 0;border-top:1px solid var(--line)}
+.job__range{font-family:"Archivo Black",sans-serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.job h3{margin-top:12px;font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(26px,3vw,42px);line-height:1.02;
+  letter-spacing:-.005em;text-transform:uppercase;text-wrap:balance;color:var(--cream)}
+.job__body{max-width:560px}
+.job__body p{font-family:"Inter Display","Inter",sans-serif;font-size:16px;line-height:1.6;color:var(--text)}
+.job__body p + p{margin-top:16px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4.45vw,64px);
+  padding:clamp(28px,3.6vw,52px) 0;border-top:1px solid var(--line)}
+.facts__item p{margin-top:20px;max-width:560px;font-family:"Inter Display","Inter",sans-serif;font-size:16px;line-height:1.6;color:var(--text)}
+.facts__item strong{font-weight:600;color:var(--white)}
+.cta-buttons{display:flex;flex-wrap:wrap;gap:12px}
+
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 20px;font-size:14px;font-weight:600;line-height:14px;transition:opacity .2s,background .2s,color .2s}
 .btn--gold{background:var(--gold);color:var(--bg)}
@@ -170,8 +192,10 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 
 /* Tablet: stack the about section */
 @media (max-width:860px){
-  .service{grid-template-columns:minmax(0,1fr);gap:20px}
-  .service__body{max-width:none}
+  .service,.job{grid-template-columns:minmax(0,1fr);gap:20px}
+  .about-intro,.facts{grid-template-columns:minmax(0,1fr)}
+  .about-intro__img{max-width:520px}
+  .service__body,.job__body{max-width:none}
   .about{grid-template-columns:minmax(0,1fr)}
   .about__text p{max-width:none}
 }
