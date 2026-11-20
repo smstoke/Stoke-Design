@@ -66,6 +66,7 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 /* Page header (inner pages) */
 .page-head{max-width:1440px;margin:0 auto;padding:clamp(40px,5.56vw,80px) clamp(20px,7.08vw,102px) 0}
 .page-head h1{font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(36px,4.445vw,64px);line-height:.98;letter-spacing:-.005em;text-transform:uppercase;color:var(--cream)}
+.page-head--services h1{max-width:1000px;text-wrap:balance}
 .page-head p{margin-top:20px;max-width:618px;font-family:"Inter Display","Inter",sans-serif;font-size:14px;line-height:20.3px;color:var(--text)}
 .page-head + main .work{padding-top:48px}
 .page-head + main .work + .work{padding-top:88px}
