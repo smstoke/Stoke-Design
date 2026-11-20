@@ -82,9 +82,10 @@
   var started = false;
 
   function splitWords(el) {
+    var host = el.querySelector(".hl") || el;
     var text = el.textContent.trim().replace(/\s+/g, " ");
     el.setAttribute("aria-label", text);
-    el.textContent = "";
+    host.textContent = "";
     var words = [];
     text.split(" ").forEach(function (word, i, all) {
       var mask = document.createElement("span");
@@ -94,8 +95,8 @@
       inner.className = "word";
       inner.textContent = word;
       mask.appendChild(inner);
-      el.appendChild(mask);
-      if (i < all.length - 1) el.appendChild(document.createTextNode(" "));
+      host.appendChild(mask);
+      if (i < all.length - 1) host.appendChild(document.createTextNode(" "));
       words.push(inner);
     });
     return words;
@@ -109,7 +110,9 @@
   document.querySelectorAll(HEADINGS).forEach(function (el) {
     var words = splitWords(el);
     gsap.set(words, { yPercent: 120, x: -10, rotate: -4, opacity: 0 });
-    headingWords.push({ el: el, words: words });
+    var bar = el.querySelector(".hl");
+    if (bar) gsap.set(bar, { "--bar": 0 });
+    headingWords.push({ el: el, words: words, bar: bar });
   });
   gsap.set(SLIDE, { x: -100, opacity: 0 });
   gsap.set(RISE, { y: 24, opacity: 0 });
@@ -128,9 +131,11 @@
             duration: 1.1, ease: "power3.out",
             stagger: { each: 0.04, from: "start" }, overwrite: true
           });
+          if (h.bar) gsap.to(h.bar, { "--bar": 1, duration: 0.9, delay: 0.1, ease: "power3.out", overwrite: true });
         },
         onLeaveBack: function () {
           gsap.set(h.words, { yPercent: 120, x: -10, rotate: -4, opacity: 0, overwrite: true });
+          if (h.bar) gsap.set(h.bar, { "--bar": 0, overwrite: true });
         }
       });
     });
