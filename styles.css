@@ -164,6 +164,29 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 .facts__item strong{font-weight:600;color:var(--white)}
 .cta-buttons{display:flex;flex-wrap:wrap;gap:12px}
 
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,4.45vw,64px);align-items:start}
+.contact__intro p{margin-top:24px;max-width:460px;font-family:"Inter Display","Inter",sans-serif;font-size:16px;line-height:1.6;color:var(--text)}
+.contact__list{margin-top:24px;display:grid;gap:12px}
+.contact__list li{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--white)}
+.contact__list li::before{content:"";flex:none;width:18px;height:4px;background:var(--gold)}
+.contact-form{--error:#f0a3a0;display:grid;gap:24px;max-width:640px}
+.contact-form label{display:block;margin-bottom:10px;font-family:"Archivo Black",sans-serif;font-size:12px;line-height:1.4;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.contact-form__optional{margin-left:6px;font-family:"Inter",sans-serif;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text);opacity:.7}
+.contact-form input:not([type=hidden]):not([type=checkbox]),.contact-form textarea{width:100%;padding:14px 16px;font:400 16px/1.4 "Inter",sans-serif;color:var(--white);
+  background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:0;transition:border-color .2s,background .2s,box-shadow .2s}
+.contact-form textarea{min-height:180px;resize:vertical}
+.contact-form input:not([type=hidden]):not([type=checkbox]):hover,.contact-form textarea:hover{border-color:rgba(255,255,255,.4)}
+.contact-form input:not([type=hidden]):not([type=checkbox]):focus,.contact-form textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.07);box-shadow:0 0 0 3px rgba(196,170,94,.25)}
+.contact-form input:user-invalid,.contact-form textarea:user-invalid{border-color:var(--error)}
+.contact-form input:-webkit-autofill{-webkit-text-fill-color:var(--white);box-shadow:0 0 0 1000px #1c211f inset;caret-color:var(--white)}
+.contact-form__trap{display:none}
+.contact-form .btn{justify-self:start;font-family:inherit;border:0;cursor:pointer}
+.contact-form .btn:disabled{opacity:.5;cursor:wait}
+.contact-form__status{min-height:1.6em;font-size:15px;line-height:1.6;color:var(--text)}
+.contact-form__status.is-success{color:var(--cream)}
+.contact-form__status.is-error{color:var(--error)}
+
 /* Buttons: wave reveal. A wave-shaped blob waits off the top-left corner and sweeps across the button on hover.
    Sizes and easing follow the Framer "Wave Reveal Button": rest 132x123px at (-84px,-100px); hover 100% + 137px wide
    by 307px tall, anchored left at -84px, easing out over about a second. --wave is the reveal color. */
@@ -218,7 +241,7 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 /* Tablet: stack the about section */
 @media (max-width:860px){
   .service,.job{grid-template-columns:minmax(0,1fr);gap:20px}
-  .about-intro,.facts{grid-template-columns:minmax(0,1fr)}
+  .about-intro,.facts,.contact{grid-template-columns:minmax(0,1fr)}
   .about-intro__logo{max-width:420px}
   .service__body,.job__body{max-width:none}
   .about{grid-template-columns:minmax(0,1fr)}

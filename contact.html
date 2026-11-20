@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Stoke Design | Start a Branding or Design Project</title>
+  <meta name="description" content="Get in touch with Stoke Design about logos and branding, marketing materials, website design or apparel. Tell me about your project and I'll get back to you.">
+  <link rel="icon" href="assets/images/stoke-design-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("has-wipe");
+      // If the motion scripts never run, uncover the page.
+      window.__wipeFailsafe = setTimeout(function () { document.documentElement.classList.remove("has-wipe"); }, 5000);
+    }
+  </script>
+</head>
+<body id="top">
+
+  <div class="c-pagewipe" aria-hidden="true"><div class="c-pagewipe_panel"></div></div>
+
+  <nav class="nav">
+    <a class="nav__logo" href="index.html" aria-label="Stoke Design"><img src="assets/images/stoke-design-logo.png" alt="Stoke Design"></a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-head page-head--split">
+    <h1><span class="h1-main">Start a Project</span> <span class="h1-accent">Contact Stoke Design</span></h1>
+  </header>
+
+  <main>
+    <section class="page-section contact" id="contact">
+      <div class="contact__intro">
+        <h2>tell me about it</h2>
+        <p>Whether it’s a new logo, a full brand, a website or merch people will want to wear, a few details help me get started. I’ll get back to you soon.</p>
+        <ul class="contact__list">
+          <li>What your business does</li>
+          <li>What you need designed</li>
+          <li>Any deadline you’re working toward</li>
+        </ul>
+      </div>
+
+      <!--
+        CONTACT FORM (Web3Forms)
+        1. Get a free access key at https://web3forms.com (enter the email you want messages sent to).
+        2. Paste the key into the access_key field below, replacing YOUR_ACCESS_KEY_HERE. That is the only change needed.
+        Until then the form tells visitors it isn't connected yet, and sends nothing.
+      -->
+      <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New message from stoke-design.com">
+        <input type="hidden" name="from_name" value="Stoke Design website">
+
+        <!-- Spam trap: bots fill this in, people never see it -->
+        <input type="checkbox" name="botcheck" class="contact-form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="contact-form__field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="contact-form__field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="contact-form__field">
+          <label for="cf-business">Business name <span class="contact-form__optional">(optional)</span></label>
+          <input type="text" id="cf-business" name="business" autocomplete="organization">
+        </div>
+
+        <div class="contact-form__field">
+          <label for="cf-message">What can I help with?</label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+
+        <button class="btn btn--gold" type="submit">Send message</button>
+        <p class="contact-form__status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Sends the form without leaving the page and shows a thank-you message.
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('cf-status');
+      var button = form.querySelector('button[type="submit"]');
+
+      function say(text, kind) {
+        status.textContent = text;
+        status.className = 'contact-form__status' + (kind ? ' is-' + kind : '');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Safety net: don't pretend to send anything until the access key has been added.
+        if (form.elements.access_key.value === 'YOUR_ACCESS_KEY_HERE') {
+          say('This form isn\u2019t connected yet. Please try again soon.', 'error');
+          if (window.console) console.warn('Contact form: add your Web3Forms access key in contact.html.');
+          return;
+        }
+
+        button.disabled = true;
+        form.setAttribute('aria-busy', 'true');
+        say('Sending\u2026');
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data.success) {
+              form.reset();
+              say('Thanks! Your message is on its way. I\u2019ll get back to you soon.', 'success');
+            } else {
+              say('Something went wrong. Please try again.', 'error');
+            }
+          })
+          .catch(function () {
+            say('Something went wrong. Please try again.', 'error');
+          })
+          .finally(function () {
+            button.disabled = false;
+            form.removeAttribute('aria-busy');
+          });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <img src="assets/images/stoke-design-logo.png" alt="Stoke Design">
+    <ul class="footer__social" aria-label="Stoke Design on social media">
+      <li><a href="https://www.facebook.com/stokedesign" target="_blank" rel="noopener noreferrer" aria-label="Stoke Design on Facebook (opens in a new tab)">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a></li>
+      <li><a href="https://www.instagram.com/stoke_design/" target="_blank" rel="noopener noreferrer" aria-label="Stoke Design on Instagram (opens in a new tab)">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+      </a></li>
+    </ul>
+    <a class="btn btn--outline btn--sm" href="#top">Back to top</a>
+    <p class="footer__copy">&copy; forever. Please don&rsquo;t steal my stuff.</p>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="motion.js" defer></script>
+</body>
+</html>

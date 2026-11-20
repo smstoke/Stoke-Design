@@ -1,6 +1,6 @@
 # Stoke Design
 
-Static site: `index.html` (home), `about.html`, `services.html`, `portfolio.html` and one case-study page per project
+Static site: `index.html` (home), `about.html`, `services.html`, `contact.html`, `portfolio.html` and one case-study page per project
 (`7b-iv-trinity-wellness-center.html`, `shooters-bar-and-grill.html`, `valor-christian-high-school.html`, `hair-by-drew.html`), styled by `styles.css`,
 with smooth scroll and intro animation in `motion.js` and the mobile menu in `nav.js`.
 
@@ -24,3 +24,9 @@ npm run dev:sync   # same, plus git pull every 5s to pick up pushed changes
 `johnson-brothers-painting.html` is hidden for now: it is not linked from the portfolio, the Next buttons or the
 Services page, and it is marked `noindex`. To bring it back, remove it from `HIDDEN` in the page generator, add its
 tile to `portfolio.html`, and re-add its Related work link on `services.html`.
+
+## Contact form
+
+`contact.html` sends messages through Web3Forms. Paste your access key (free at https://web3forms.com) into the
+`access_key` field in that file, replacing `YOUR_ACCESS_KEY_HERE`. Until then the form shows a "not connected yet"
+message and sends nothing.
