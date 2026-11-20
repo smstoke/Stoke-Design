@@ -102,7 +102,7 @@
         e.preventDefault();
 
         // Safety net: don't pretend to send anything until the access key has been added.
-        if (form.elements.access_key.value === 'YOUR_ACCESS_KEY_HERE') {
+        if (/^YOUR_ACCESS_KEY/.test(form.elements.access_key.value)) {   // still the placeholder
           say('This form isn\u2019t connected yet. Please try again soon.', 'error');
           if (window.console) console.warn('Contact form: add your Web3Forms access key in contact.html.');
           return;
