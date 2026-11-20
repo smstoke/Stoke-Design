@@ -1,7 +1,7 @@
 # Stoke Design
 
 Static site: `index.html` (home), `about.html`, `services.html`, `portfolio.html` and one case-study page per project
-(`7b-iv-trinity-wellness-center.html`, `shooters-bar-and-grill.html`, `valor-christian-high-school.html`, `hair-by-drew.html`, `johnson-brothers-painting.html`), styled by `styles.css`,
+(`7b-iv-trinity-wellness-center.html`, `shooters-bar-and-grill.html`, `valor-christian-high-school.html`, `hair-by-drew.html`), styled by `styles.css`,
 with smooth scroll and intro animation in `motion.js` and the mobile menu in `nav.js`.
 
 ## Run locally with live reload
@@ -18,3 +18,9 @@ npm run dev:sync   # same, plus git pull every 5s to pick up pushed changes
 - Use another port with `PORT=3000 npm run dev`.
 - `dev:sync` needs a clean working tree on a branch that tracks a remote, and only
   fast-forwards. If it can't pull, it prints why and keeps serving.
+
+## Hidden pages
+
+`johnson-brothers-painting.html` is hidden for now: it is not linked from the portfolio, the Next buttons or the
+Services page, and it is marked `noindex`. To bring it back, remove it from `HIDDEN` in the page generator, add its
+tile to `portfolio.html`, and re-add its Related work link on `services.html`.
