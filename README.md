@@ -1,6 +1,6 @@
 # Stoke Design
 
-Static site: `index.html` (home), `portfolio.html` and one case-study page per project
+Static site: `index.html` (home), `services.html`, `portfolio.html` and one case-study page per project
 (`7b-iv-trinity-wellness-center.html`, `shooters-bar-and-grill.html`, `valor-christian-high-school.html`, `hair-by-drew.html`, `johnson-brothers-painting.html`), styled by `styles.css`,
 with smooth scroll and intro animation in `motion.js` and the mobile menu in `nav.js`.
 
