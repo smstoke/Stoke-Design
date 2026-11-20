@@ -109,7 +109,8 @@
 
   var HEADINGS = ".hero h1, .hero h4, .page-head h1, .work h2, .about h2, .service h2, .services-cta h2, .page-section > h2, .about-intro__text h2, .facts__item h2, .job h3";
   var SLIDE = ".work__grid > *, .project-grid > *, .about__img";
-  var RISE = ".hero p, .page-head p, .about__text p, .about__buttons, .work .btn, .project-nav, .service__body > p, .services-cta .btn, .about-intro__text p, .about-intro__logo, .job__range, .job__body p, .facts__item p, .footer img, .footer .btn";
+  var FOOTER_RISE = ".footer img, .footer__social, .footer .btn, .footer__copy";
+  var RISE = ".hero p, .page-head p, .about__text p, .about__buttons, .work .btn, .project-nav, .service__body > p, .services-cta .btn, .about-intro__text p, .about-intro__logo, .job__range, .job__body p, .facts__item p";
 
   // Hide everything up front (the wipe panel is covering the page at this point).
   document.querySelectorAll(HEADINGS).forEach(function (el) {
@@ -121,6 +122,7 @@
   });
   gsap.set(SLIDE, { x: -100, opacity: 0 });
   gsap.set(RISE, { y: 24, opacity: 0 });
+  gsap.set(FOOTER_RISE, { y: 24, opacity: 0 });
 
   function startReveals() {
     if (started) return;
@@ -157,6 +159,16 @@
 
     ScrollTrigger.batch(RISE, {
       start: "top 92%",
+      onEnter: function (els) {
+        gsap.to(els, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, overwrite: true, clearProps: "transform,opacity" });
+      },
+      onLeaveBack: function (els) {
+        gsap.set(els, { y: 24, opacity: 0, overwrite: true });
+      }
+    });
+
+    ScrollTrigger.batch(FOOTER_RISE, {
+      start: "top 99%",
       onEnter: function (els) {
         gsap.to(els, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, overwrite: true, clearProps: "transform,opacity" });
       },

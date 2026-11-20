@@ -197,6 +197,11 @@ h2{font-family:"Anton SC",sans-serif;font-weight:400;font-size:32px;line-height:
 .footer{width:1300px;max-width:calc(100% - clamp(32px,9.72vw,140px));margin:0 auto;padding:clamp(80px,12.43vw,179px) 0 40px;background:var(--panel);border-top:1px solid var(--line);
   display:flex;flex-direction:column;align-items:center;gap:24px}
 .footer img{width:124px;height:75px;object-fit:contain}
+.footer__social{display:flex;gap:6px}
+.footer__social a{display:grid;place-items:center;width:44px;height:44px;color:var(--white);transition:color .2s}
+.footer__social a:hover{color:var(--gold)}
+.footer__social a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.footer__copy{margin-top:4px;padding:0 20px;text-align:center;font-size:13px;line-height:1.5;color:rgba(215,215,215,.72)}
 .page-head + main + .footer{margin-top:50px}
 
 /* Tablet: stack the about section */
