@@ -82,22 +82,27 @@
   var started = false;
 
   function splitWords(el) {
-    var host = el.querySelector(".hl") || el;
-    var text = el.textContent.trim().replace(/\s+/g, " ");
-    el.setAttribute("aria-label", text);
-    host.textContent = "";
+    // A heading can be made of styled parts (.h1-main, .h1-accent) or have a highlight span (.hl):
+    // split the words inside each part so every part keeps its own styling.
+    var hosts = el.querySelectorAll(".hl, .h1-main, .h1-accent");
+    if (!hosts.length) hosts = [el];
+    el.setAttribute("aria-label", el.textContent.trim().replace(/\s+/g, " "));
     var words = [];
-    text.split(" ").forEach(function (word, i, all) {
-      var mask = document.createElement("span");
-      mask.className = "word-mask";
-      mask.setAttribute("aria-hidden", "true");
-      var inner = document.createElement("span");
-      inner.className = "word";
-      inner.textContent = word;
-      mask.appendChild(inner);
-      host.appendChild(mask);
-      if (i < all.length - 1) host.appendChild(document.createTextNode(" "));
-      words.push(inner);
+    Array.prototype.forEach.call(hosts, function (host) {
+      var text = host.textContent.trim().replace(/\s+/g, " ");
+      host.textContent = "";
+      text.split(" ").forEach(function (word, i, all) {
+        var mask = document.createElement("span");
+        mask.className = "word-mask";
+        mask.setAttribute("aria-hidden", "true");
+        var inner = document.createElement("span");
+        inner.className = "word";
+        inner.textContent = word;
+        mask.appendChild(inner);
+        host.appendChild(mask);
+        if (i < all.length - 1) host.appendChild(document.createTextNode(" "));
+        words.push(inner);
+      });
     });
     return words;
   }
